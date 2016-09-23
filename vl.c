@@ -2982,7 +2982,6 @@ static int global_init_func(void *opaque, QemuOpts *opts, Error **errp)
 
 int main(int argc, char **argv, char **envp)
 {
-    printf("Hello Repo\n");
     int i;
     int snapshot, linux_boot;
     const char *initrd_filename;
