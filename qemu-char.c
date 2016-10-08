@@ -926,6 +926,7 @@ static guint io_add_watch_poll(QIOChannel *ioc,
     int tag;
 
     iwp = (IOWatchPoll *) g_source_new(&io_watch_poll_funcs, sizeof(IOWatchPoll));
+    //g_source_set_name(&iwp->parent, "IOWatchPoll source");
     iwp->fd_can_read = fd_can_read;
     iwp->opaque = user_data;
     iwp->ioc = ioc;

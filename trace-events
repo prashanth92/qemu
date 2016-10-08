@@ -25,6 +25,10 @@
 #
 # The <format-string> should be a sprintf()-compatible format string.
 
+#async.c
+bh_callback_before(void *func_ptr, const char *status) "func_ptr %p status %s"
+bh_callback_after(void *func_ptr, const char *status) "func_ptr %p status %s"
+
 # thread-pool.c
 thread_pool_submit(void *pool, void *req, void *opaque) "pool %p req %p opaque %p"
 thread_pool_complete(void *pool, void *req, void *opaque, int ret) "pool %p req %p opaque %p ret %d"

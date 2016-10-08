@@ -30,6 +30,7 @@
 #include "qemu/main-loop.h"
 #include "qemu/atomic.h"
 #include "block/raw-aio.h"
+#include "trace.h"
 
 /***********************************************************/
 /* bottom halves (can be seen as timers which expire ASAP) */
@@ -64,7 +65,9 @@ QEMUBH *aio_bh_new(AioContext *ctx, QEMUBHFunc *cb, void *opaque)
 
 void aio_bh_call(QEMUBH *bh)
 {
+    trace_bh_callback_before(bh->cb, "BH_START");
     bh->cb(bh->opaque);
+    trace_bh_callback_after(bh->cb, "BH_END");
 }
 
 /* Multiple occurrences of aio_bh_poll cannot be called concurrently */
@@ -349,6 +352,7 @@ AioContext *aio_context_new(Error **errp)
     AioContext *ctx;
 
     ctx = (AioContext *) g_source_new(&aio_source_funcs, sizeof(AioContext));
+    g_source_set_name(&ctx->source, "Async FD");
     aio_context_setup(ctx);
 
     ret = event_notifier_init(&ctx->notifier, false);

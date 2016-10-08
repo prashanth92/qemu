@@ -175,6 +175,7 @@ static GSource *spice_chr_add_watch(CharDriverState *chr, GIOCondition cond)
 
     src = (SpiceCharSource *)g_source_new(&SpiceCharSourceFuncs,
                                           sizeof(SpiceCharSource));
+    g_source_set_name(&src->source, "Spice Char ADD FD");
     src->scd = scd;
 
     return (GSource *)src;
