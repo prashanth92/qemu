@@ -145,7 +145,7 @@ F: disas/microblaze.c
 
 MIPS
 M: Aurelien Jarno <aurelien@aurel32.net>
-M: Leon Alrae <leon.alrae@imgtec.com>
+M: Yongbok Kim <yongbok.kim@imgtec.com>
 S: Maintained
 F: target-mips/
 F: hw/mips/
@@ -479,6 +479,21 @@ S: Maintained
 F: hw/arm/virt-acpi-build.c
 F: include/hw/arm/virt-acpi-build.h
 
+STM32F205
+M: Alistair Francis <alistair@alistair23.me>
+S: Maintained
+F: hw/arm/stm32f205_soc.c
+F: hw/misc/stm32f2xx_syscfg.c
+F: hw/char/stm32f2xx_usart.c
+F: hw/timer/stm32f2xx_timer.c
+F: hw/adc/*
+F: hw/ssi/stm32f2xx_spi.c
+
+Netduino 2
+M: Alistair Francis <alistair@alistair23.me>
+S: Maintained
+F: hw/arm/netduino2.c
+
 CRIS Machines
 -------------
 Axis Dev88
@@ -605,6 +620,7 @@ S: Maintained
 F: hw/ppc/mac_oldworld.c
 F: hw/pci-host/grackle.c
 F: hw/misc/macio/
+F: hw/intc/heathrow_pic.c
 
 PReP
 L: qemu-devel@nongnu.org
@@ -613,6 +629,7 @@ S: Odd Fixes
 F: hw/ppc/prep.c
 F: hw/pci-host/prep.[hc]
 F: hw/isa/pc87312.[hc]
+F: pc-bios/ppc_rom.bin
 
 sPAPR
 M: David Gibson <david@gibson.dropbear.id.au>
@@ -772,6 +789,7 @@ M: John Snow <jsnow@redhat.com>
 L: qemu-block@nongnu.org
 S: Supported
 F: include/hw/ide.h
+F: include/hw/ide/
 F: hw/ide/
 F: hw/block/block.c
 F: hw/block/cdrom.c
@@ -1012,6 +1030,12 @@ e1000e
 M: Dmitry Fleytman <dmitry@daynix.com>
 S: Maintained
 F: hw/net/e1000e*
+
+Generic Loader
+M: Alistair Francis <alistair.francis@xilinx.com>
+S: Maintained
+F: hw/core/generic-loader.c
+F: include/hw/core/generic-loader.h
 
 Subsystems
 ----------
@@ -1363,6 +1387,15 @@ S: Supported
 F: util/uuid.c
 F: include/qemu/uuid.h
 F: tests/test-uuid.c
+
+COLO Proxy
+M: Zhang Chen <zhangchen.fnst@cn.fujitsu.com>
+M: Li Zhijian <lizhijian@cn.fujitsu.com>
+S: Supported
+F: docs/colo-proxy.txt
+F: net/colo*
+F: net/filter-rewriter.c
+F: net/filter-mirror.c
 
 Usermode Emulation
 ------------------
